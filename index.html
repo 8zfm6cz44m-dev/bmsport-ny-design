@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BMsport – Allt inom motorsport (designförslag)</title>
+<meta name="description" content="Designförslag för Barth Motorsport AB: utrustning för förare, kartläsare, bil och depå.">
+<style>
+:root{--bg:#0e0f11;--bg2:#16181b;--card:#1b1e22;--line:#2a2d32;--text:#f2efe9;--mut:#a4a8ae;--red:#d8261c;--red2:#ff3b2f;--r:14px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--red2);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.banner{background:var(--red);font-size:13px;text-align:center;padding:8px 12px;font-weight:600;letter-spacing:.02em}
+header{position:sticky;top:0;z-index:50;background:rgba(14,15,17,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:24px;height:68px}
+.logo img{height:34px;width:auto;filter:brightness(0) invert(1)}
+.logo b{font-size:22px;letter-spacing:.04em}
+nav.main{display:flex;gap:22px;margin-left:12px;flex:1}
+nav.main a{font-size:14px;font-weight:600;color:var(--mut);padding:6px 0;border-bottom:2px solid transparent;transition:.2s}
+nav.main a:hover{color:var(--text);border-color:var(--red)}
+.tools{display:flex;gap:10px;align-items:center}
+.search{display:flex;background:var(--bg2);border:1px solid var(--line);border-radius:99px;overflow:hidden}
+.search input{background:none;border:0;color:var(--text);padding:9px 16px;width:190px;font-size:14px}
+.search input:focus{outline:none}
+.search:focus-within{border-color:var(--red)}
+.search button{background:none;border:0;color:var(--mut);padding:0 14px;cursor:pointer}
+.cartbtn,.burger{background:var(--bg2);border:1px solid var(--line);color:var(--text);border-radius:99px;height:42px;padding:0 16px;font-weight:600;cursor:pointer;font-size:14px;display:flex;align-items:center;gap:8px}
+.cartbtn span{background:var(--red);border-radius:99px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px}
+.burger{display:none;width:44px;padding:0;justify-content:center;font-size:20px}
+.hero{position:relative;min-height:84vh;display:flex;align-items:flex-end;overflow:hidden;background:#222}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,15,17,.35) 0%,rgba(14,15,17,.55) 45%,var(--bg) 100%),linear-gradient(90deg,rgba(14,15,17,.75),transparent 70%)}
+.hero .wrap{position:relative;z-index:2;padding-bottom:72px;padding-top:120px}
+.eyebrow{display:inline-block;color:var(--red2);font-weight:700;font-size:13px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px}
+h1{font-size:clamp(38px,7vw,84px);line-height:1.02;letter-spacing:-.02em;max-width:14ch;font-weight:800}
+h1 em{font-style:normal;color:var(--red2)}
+.hero p{max-width:52ch;margin:22px 0 32px;font-size:18px;color:#d7d4cd}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 28px;border-radius:99px;font-weight:700;font-size:15px;border:2px solid var(--red);background:var(--red);color:#fff;cursor:pointer;transition:.2s}
+.btn:hover{background:var(--red2);border-color:var(--red2);transform:translateY(-2px)}
+.btn.ghost{background:transparent;border-color:rgba(255,255,255,.5)}
+.btn.ghost:hover{background:#fff;color:#111;border-color:#fff}
+.strip{background:var(--bg2);border-block:1px solid var(--line)}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding-block:22px}
+.strip div{font-size:14px;color:var(--mut)}
+.strip b{display:block;color:var(--text);font-size:15px}
+section{padding:88px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:36px;flex-wrap:wrap}
+h2{font-size:clamp(28px,4vw,44px);letter-spacing:-.01em;line-height:1.1}
+.head p{color:var(--mut);max-width:48ch;margin-top:8px}
+.link{color:var(--red2);font-weight:700;font-size:15px}
+.link:hover{text-decoration:underline}
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cat{position:relative;border-radius:var(--r);overflow:hidden;min-height:400px;display:flex;align-items:flex-end;background:#2a2d32;border:1px solid var(--line)}
+.cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.cat:hover img{transform:scale(1.06)}
+.cat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(0,0,0,.88))}
+.cat div{position:relative;z-index:2;padding:26px}
+.cat small{color:var(--red2);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:12px}
+.cat h3{font-size:26px;margin:4px 0 6px}
+.cat span{color:#d0cdc6;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.25s}
+.card:hover{border-color:#44484f;transform:translateY(-4px)}
+.ph{aspect-ratio:1;background:#f1efea;display:grid;place-items:center;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:contain;padding:10px;mix-blend-mode:multiply}
+.info{padding:18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.tag{font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.1em}
+.info h3{font-size:17px;line-height:1.3}
+.info p{font-size:13.5px;color:var(--mut);flex:1}
+.buy{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}
+.price{font-weight:800;font-size:19px}
+.add{background:var(--red);color:#fff;border:0;border-radius:99px;padding:10px 16px;font-weight:700;cursor:pointer;font-size:14px;transition:.2s}
+.add:hover{background:var(--red2)}
+.add.ok{background:#1f8a4c}
+.expert{background:var(--bg2);border-block:1px solid var(--line)}
+.two{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.expert p{color:#c9c6bf;margin:16px 0}
+.pills{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pill{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.pill b{display:block;font-size:17px;margin-bottom:4px}
+.pill span{font-size:14px;color:var(--mut)}
+.pill i{font-style:normal;color:var(--red2);font-size:22px;display:block;margin-bottom:8px}
+footer{padding:64px 0 32px;border-top:1px solid var(--line)}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+footer h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
+footer li{list-style:none;margin:8px 0;font-size:15px}
+footer li a:hover{color:var(--red2)}
+.copy{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);color:var(--mut);font-size:13px}
+/* cart */
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:var(--bg2);border-left:1px solid var(--line);z-index:100;transform:translateX(100%);transition:.3s;display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:20px;border-bottom:1px solid var(--line)}
+.dh button{background:none;border:0;color:var(--text);font-size:26px;cursor:pointer}
+.items{flex:1;overflow:auto;padding:12px 20px}
+.it{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.it img{width:56px;height:56px;object-fit:contain;background:#f1efea;border-radius:8px;mix-blend-mode:normal}
+.it div{flex:1;font-size:14px}
+.it small{color:var(--mut)}
+.it button{background:var(--bg);border:1px solid var(--line);color:var(--text);border-radius:6px;width:28px;height:28px;cursor:pointer}
+.empty{color:var(--mut);text-align:center;padding:60px 0}
+.df{padding:20px;border-top:1px solid var(--line)}
+.tot{display:flex;justify-content:space-between;font-weight:800;font-size:20px;margin-bottom:14px}
+.df .btn{width:100%;justify-content:center}
+.df small{display:block;color:var(--mut);margin-top:10px;font-size:12px;text-align:center}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:90;opacity:0;pointer-events:none;transition:.3s}
+.scrim.open{opacity:1;pointer-events:auto}
+@media(max-width:980px){
+ .grid{grid-template-columns:repeat(2,1fr)}.cats{grid-template-columns:1fr}.cat{min-height:280px}
+ .two{grid-template-columns:1fr;gap:32px}.strip .wrap{grid-template-columns:1fr 1fr}.fgrid{grid-template-columns:1fr 1fr}
+ nav.main{position:absolute;top:68px;left:0;right:0;background:var(--bg);flex-direction:column;gap:0;margin:0;padding:8px 20px 16px;border-bottom:1px solid var(--line);display:none}
+ nav.main.open{display:flex}nav.main a{padding:14px 0;border-bottom:1px solid var(--line);font-size:16px}
+ .burger{display:flex}.search{display:none}.nav{gap:12px}.logo{flex:1}
+}
+@media(max-width:560px){section{padding:60px 0}.grid{gap:12px}.info{padding:14px}.info p{display:none}.buy{flex-direction:column;align-items:stretch}.add{width:100%;min-height:44px}.fgrid{grid-template-columns:1fr}.hero{min-height:78vh}.pills{grid-template-columns:1fr}.cartbtn b{display:none}}
+</style>
+</head>
+<body>
+<div class="banner">Designförslag för Barth Motorsport AB – butiken nedan är en demo, riktiga köp sker på bmsport.se</div>
+<header>
+ <div class="wrap nav">
+  <a class="logo" href="#top" aria-label="BMsport startsida"><img src="https://usercontent.one/wp/www.bmsport.se/wp-content/uploads/2023/11/bmsportse_vector.png" alt="BMsport" onerror="this.outerHTML='<b>BMSPORT</b>'"></a>
+  <nav class="main" id="menu" aria-label="Huvudmeny">
+   <a href="#kategorier">Personlig utrustning</a>
+   <a href="#kategorier">Till bilen</a>
+   <a href="#kategorier">Depå &amp; verkstad</a>
+   <a href="https://www.bmsport.se/" target="_blank" rel="noopener">Kurser</a>
+   <a href="https://www.bmsport.se/" target="_blank" rel="noopener">Noteriet</a>
+   <a href="https://www.bmsport.se/" target="_blank" rel="noopener">Mallar</a>
+  </nav>
+  <div class="tools">
+   <form class="search" role="search" action="https://www.bmsport.se/" method="get" target="_blank">
+    <input type="search" name="s" placeholder="Sök produkter …" aria-label="Sök produkter"><input type="hidden" name="post_type" value="product">
+    <button aria-label="Sök">⌕</button>
+   </form>
+   <button class="cartbtn" id="openCart" aria-label="Öppna varukorg">🛒 <b>Varukorg</b><span id="count">0</span></button>
+   <button class="burger" id="burger" aria-label="Meny" aria-expanded="false">☰</button>
+  </div>
+ </div>
+</header>
+
+<main id="top">
+<section class="hero" style="padding:0">
+ <img src="https://usercontent.one/wp/www.bmsport.se/wp-content/uploads/2024/10/Frasm1-scaled.jpg" alt="Rallybil i fart" fetchpriority="high">
+ <div class="wrap">
+  <span class="eyebrow">Barth Motorsport · Torsby</span>
+  <h1>Allt inom <em>motorsport.</em></h1>
+  <p>Overaller, underställ, säkerhet och co-driverutrustning – plus kurser, noter och mallar. Utrustning för dig som tävlar på allvar.</p>
+  <div class="btns">
+   <a class="btn" href="#produkter">Handla utrustning →</a>
+   <a class="btn ghost" href="#kategorier">Utforska kategorier</a>
+  </div>
+ </div>
+</section>
+
+<div class="strip"><div class="wrap">
+ <div><b>FIA 8856-2018</b>Godkända overaller och underställ</div>
+ <div><b>Tillverkade i Italien</b>P1 Advanced Racewear</div>
+ <div><b>SBF-godkänd skylt</b>OK/SOS för rally</div>
+ <div><b>379 produkter</b>I tre huvudkategorier</div>
+</div></div>
+
+<section id="kategorier"><div class="wrap">
+ <div class="head"><div><h2>Hitta rätt – snabbt</h2><p>Tre vägar in i sortimentet.</p></div></div>
+ <div class="cats">
+  <a class="cat" href="https://www.bmsport.se/produkt-kategori/personlig-utrustning/" target="_blank" rel="noopener">
+   <img src="https://usercontent.one/wp/www.bmsport.se/wp-content/uploads/2026/05/Auto-X.jpg" alt="Racingoverall" loading="lazy">
+   <div><small>127 produkter</small><h3>För förare &amp; kartläsare</h3><span>Overaller, underställ, co-driverpaket →</span></div>
+  </a>
+  <a class="cat" href="https://www.bmsport.se/produkt-kategori/till-bilen/" target="_blank" rel="noopener">
+   <img src="https://usercontent.one/wp/www.bmsport.se/wp-content/uploads/2024/01/OK-skylt.jpg" alt="OK/SOS-skylt" loading="lazy">
+   <div><small>216 produkter</small><h3>Till bilen</h3><span>Skyltar, dekaler, säkerhet →</span></div>
+  </a>
+  <a class="cat" href="https://www.bmsport.se/produkt-kategori/depa-verkstad/" target="_blank" rel="noopener">
+   <img src="https://usercontent.one/wp/www.bmsport.se/wp-content/uploads/2023/05/M1_ANTEPRIMA_5e8bc78eaf8237ee98f81a996dd84d11.jpg" alt="Mekanikeroverall" loading="lazy">
+   <div><small>36 produkter</small><h3>Depå &amp; verkstad</h3><span>Mekanikerkläder och verkstad →</span></div>
+  </a>
+ </div>
+</div></section>
+
+<section id="produkter" style="background:var(--bg2);border-block:1px solid var(--line)"><div class="wrap">
+ <div class="head"><div><h2>Utvalda produkter</h2><p>Ett urval ur sortimentet. Lägg i varukorgen och se hur köpupplevelsen kan kännas.</p></div>
+ <a class="link" href="https://www.bmsport.se/butik/" target="_blank" rel="noopener">Till hela butiken →</a></div>
+ <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="expert"><div class="wrap two">
+ <div>
+  <span class="eyebrow">Specialistkunskap</span>
+  <h2>Av motorsportare, för motorsportare</h2>
+  <p>BMsport säljer utrustning som tävlande faktiskt använder – från FIA-godkända overaller till rallyskyltar och co-driverpaket. Vid sidan av butiken finns kurser, noter och mallar.</p>
+  <a class="btn" href="https://www.bmsport.se/" target="_blank" rel="noopener">Kurser, noter &amp; mallar →</a>
+ </div>
+ <div class="pills">
+  <div class="pill"><i>◆</i><b>Personlig utrustning</b><span>Overaller, underställ och co-driver.</span></div>
+  <div class="pill"><i>◆</i><b>Till bilen</b><span>Skyltar och dekaler för tävling.</span></div>
+  <div class="pill"><i>◆</i><b>Depå &amp; verkstad</b><span>Slitstarka mekanikerkläder.</span></div>
+  <div class="pill"><i>◆</i><b>Kurser &amp; noter</b><span>Kunskap och verktyg för kartläsare.</span></div>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+ <div class="fgrid">
+  <div><h4>Barth Motorsport AB</h4><p style="color:var(--mut);max-width:34ch">Allt inom motorsport.<br>Lasarettsvägen 3<br>685 34 Torsby</p></div>
+  <div><h4>Butik</h4><ul>
+   <li><a href="https://www.bmsport.se/produkt-kategori/personlig-utrustning/" target="_blank" rel="noopener">Personlig utrustning</a></li>
+   <li><a href="https://www.bmsport.se/produkt-kategori/till-bilen/" target="_blank" rel="noopener">Till bilen</a></li>
+   <li><a href="https://www.bmsport.se/produkt-kategori/depa-verkstad/" target="_blank" rel="noopener">Depå &amp; verkstad</a></li></ul></div>
+  <div><h4>Mer</h4><ul>
+   <li><a href="https://www.bmsport.se/" target="_blank" rel="noopener">Kurser</a></li>
+   <li><a href="https://www.bmsport.se/" target="_blank" rel="noopener">Noteriet</a></li>
+   <li><a href="https://www.bmsport.se/" target="_blank" rel="noopener">Mallar</a></li></ul></div>
+ </div>
+ <div class="copy">© Barth Motorsport AB · Designprototyp – produktbilder och länkar hämtade från bmsport.se.</div>
+</div></footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Varukorg">
+ <div class="dh"><h3>Din varukorg</h3><button id="closeCart" aria-label="Stäng">×</button></div>
+ <div class="items" id="items"></div>
+ <div class="df"><div class="tot"><span>Summa</span><span id="total">0 kr</span></div>
+ <a class="btn" href="https://www.bmsport.se/butik/" target="_blank" rel="noopener">Till kassan på bmsport.se</a>
+ <small>Demo: varukorgen är en visning. Riktig kassa kopplas på WooCommerce.</small></div>
+</aside>
+
+<script>
+const U="https://usercontent.one/wp/www.bmsport.se/wp-content/uploads/";
+const P=[
+ {id:1,n:"P1 Autoexperten",c:"Overall",p:6762,i:U+"2026/05/Auto-X-600x600.jpg",d:"FIA 8856-2018. Aramid med stretchpaneler, tillverkad i Italien.",u:"https://www.bmsport.se/butik/personlig-utrustning/overaller/p1-autoexperten/"},
+ {id:2,n:"P1 Corsa",c:"Overall",p:4999,i:U+"2023/04/Namnlost-3-600x337.jpg",d:"Full Nomex®-konstruktion, FIA 8856-2018, 380 g/m².",u:"https://www.bmsport.se/butik/personlig-utrustning/overaller/p1-corsa/"},
+ {id:3,n:"Underställspaket Elite P1",c:"Underställ",p:3529,i:U+"2022/12/elite-600x600.jpg",d:"Topp, byxor, balaklava och strumpor. FIA 8856-2018.",u:"https://www.bmsport.se/butik/personlig-utrustning/understall/understallspaket-elite-p1/"},
+ {id:4,n:"Co-Driverpaket",c:"Co-driver",p:2897,i:U+"2018/12/codriverPRO-600x600.jpg",d:"Väska, Fastime-klocka och lufttrycksklocka plus block och pennor.",u:"https://www.bmsport.se/butik/personlig-utrustning/co-driver/klockor/co-driverpaket-pro/"},
+ {id:5,n:"P1 Mekanikeroverall M1",c:"Depå & verkstad",p:899,i:U+"2023/05/M1_ANTEPRIMA_5e8bc78eaf8237ee98f81a996dd84d11.jpg",d:"Slitstark polybomull. Ej FIA-godkänd. Storlek 3–8.",u:"https://www.bmsport.se/butik/depa-verkstad/mekaniker/p1-mekanikeroverall-m1/"},
+ {id:6,n:"OK/SOS Skylt A3",c:"Till bilen",p:159,i:U+"2024/01/OK-skylt-600x600.jpg",d:"SBF-godkänd kombinerad skylt för rally, 3 mm PVC.",u:"https://www.bmsport.se/butik/till-bilen/klistermarken/ok-sos-skylt-a3/"},
+ {id:7,n:"Huvudbrytaredekal",c:"Till bilen",p:25,i:"",d:"Dekal för huvudbrytare.",u:"https://www.bmsport.se/butik/till-bilen/klistermarken/huvudbrytaredekal/"},
+ {id:8,n:"Förstahjälpen dekal",c:"Till bilen",p:25,i:"",d:"Dekal för förstahjälpen.",u:"https://www.bmsport.se/butik/till-bilen/klistermarken/forstahjalpen-dekal/"}
+];
+const kr=n=>n.toLocaleString("sv-SE").replace(/ /g," ")+" kr";
+const cart={};
+const $=s=>document.querySelector(s);
+$("#grid").innerHTML=P.map(p=>`<article class="card">
+ <a class="ph" href="${p.u}" target="_blank" rel="noopener" aria-label="${p.n}">${p.i?`<img src="${p.i}" alt="${p.n}" loading="lazy">`:`<span style="font-size:42px;color:#bbb">▲</span>`}</a>
+ <div class="info"><span class="tag">${p.c}</span><h3>${p.n}</h3><p>${p.d}</p>
+ <div class="buy"><span class="price">${kr(p.p)}</span><button class="add" data-id="${p.id}">Lägg i korg</button></div></div></article>`).join("");
+function render(){
+ const ids=Object.keys(cart);let t=0,c=0;
+ $("#items").innerHTML=ids.length?ids.map(id=>{const p=P.find(x=>x.id==id),q=cart[id];t+=p.p*q;c+=q;
+  return `<div class="it">${p.i?`<img src="${p.i}" alt="">`:""}<div><b>${p.n}</b><br><small>${q} × ${kr(p.p)}</small></div><button data-m="${id}" aria-label="Minska">−</button><button data-p="${id}" aria-label="Öka">+</button></div>`}).join(""):`<p class="empty">Varukorgen är tom.</p>`;
+ $("#total").textContent=kr(t);$("#count").textContent=c;
+}
+function drawer(o){$("#drawer").classList.toggle("open",o);$("#scrim").classList.toggle("open",o)}
+document.addEventListener("click",e=>{
+ const a=e.target.closest(".add");
+ if(a){cart[a.dataset.id]=(cart[a.dataset.id]||0)+1;render();a.textContent="Tillagd ✓";a.classList.add("ok");setTimeout(()=>{a.textContent="Lägg i korg";a.classList.remove("ok")},1200);return}
+ const m=e.target.closest("[data-m]"),pl=e.target.closest("[data-p]");
+ if(m){const id=m.dataset.m;if(--cart[id]<=0)delete cart[id];render()}
+ if(pl){cart[pl.dataset.p]++;render()}
+});
+$("#openCart").onclick=()=>drawer(true);$("#closeCart").onclick=$("#scrim").onclick=()=>drawer(false);
+document.addEventListener("keydown",e=>{if(e.key==="Escape")drawer(false)});
+$("#burger").onclick=function(){const o=$("#menu").classList.toggle("open");this.setAttribute("aria-expanded",o)};
+$("#menu").onclick=e=>{if(e.target.tagName==="A")$("#menu").classList.remove("open")};
+render();
+</script>
+</body>
+</html>
